@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import "./update.css"
 import Warning from '../warning/Warning'
 import { useDispatch, useSelector } from 'react-redux'
-import { remove } from '../../redux/userSlice'
-import { updateUser } from '../../redux/apiCalls'
+import { remove, updateUser2 } from '../../redux/userSlice'
+// import { updateUser } from '../../redux/apiCalls'
 
 
 export default function Update() {
@@ -17,12 +17,17 @@ export default function Update() {
           const handleUpdate = (e) => {
                     e.preventDefault()
 
+                    // without API
                     // dispatch(update( { name, email } ))
 
-                    updateUser(
-                              {name, email},
-                              dispatch
-                    )
+                    // with APIs
+                    // updateUser(
+                    //           {name, email},
+                    //           dispatch 
+                    // )
+
+                    // 2nd API method
+                    dispatch(updateUser2( { name, email } ))
           }
 
           const handleDelete =(e) => {
