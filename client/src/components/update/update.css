@@ -81,3 +81,20 @@ form {
           font-weight: 500;
           cursor: pointer;
 }
+
+.updateBtn:disabled {
+          cursor: not-allowed;
+          background: rgb(147, 185, 185);
+}
+
+.error {
+          color: red;
+          font-size: 12px;
+          margin-left: 20px;
+}
+
+.success {
+          color: green;
+          font-size: 12px;
+          margin-left: 20px;
+}

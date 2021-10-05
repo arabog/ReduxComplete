@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./update.css"
 import Warning from '../warning/Warning'
+import { useDispatch, useSelector } from 'react-redux'
+import { remove } from '../../redux/userSlice'
+import { updateUser } from '../../redux/apiCalls'
 
 
 export default function Update() {
+          const [name, setName] = useState("")
+          const [email, setEmail] = useState("")
 
+          const { userInfo, pending, error } = useSelector(state => state.user)
+
+          const dispatch = useDispatch()
+
+          const handleUpdate = (e) => {
+                    e.preventDefault()
+
+                    // dispatch(update( { name, email } ))
+
+                    updateUser(
+                              {name, email},
+                              dispatch
+                    )
+          }
+
+          const handleDelete =(e) => {
+                    e.preventDefault()
+
+                    dispatch(remove())
+          }
 
           return (
                     <div className="update">
@@ -13,7 +38,12 @@ export default function Update() {
 
                                         <Warning />
 
-                                        <button className="deleteBtn">Delete Account</button>
+                                        <button 
+                                                  className="deleteBtn"
+                                                  onClick = {handleDelete}
+                                        >
+                                                  Delete Account
+                                        </button>
 
                                         <div className="updateContainer">
                                                   <form >
@@ -36,9 +66,10 @@ export default function Update() {
 
                                                                       <input 
                                                                                 type="text" 
-                                                                                placeholder="Enter your username"
+                                                                                placeholder= {userInfo.name}
                                                                                 id="username"
                                                                                 className="formInput"
+                                                                                onChange={e => setName(e.target.value)}
                                                                       />
                                                             </div>
 
@@ -47,9 +78,10 @@ export default function Update() {
 
                                                                       <input 
                                                                                 type="text" 
-                                                                                placeholder="Enter your email"
+                                                                                placeholder= {userInfo.email}
                                                                                 id="email"
                                                                                 className="formInput"
+                                                                                onChange={e => setEmail(e.target.value)}
                                                                       />
                                                             </div>
 
@@ -65,11 +97,23 @@ export default function Update() {
 
                                                             <button 
                                                                       className="updateBtn"
+                                                                      onClick = {handleUpdate}
+                                                                      disabled = {pending}
                                                             >
                                                                       Update
                                                             </button>
+
                                                   </form>
+
                                         </div>
+                                        
+                                        {
+                                                  error && <span className="error">Something went wrong</span>
+                                        }
+
+                                        {
+                                                  pending === false && <span className="success">Account Updated</span>
+                                        }
                               </div>
                     </div>
           )

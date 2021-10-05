@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { ArrowDropDown } from "@material-ui/icons"
-// import { useSelector } from "react-redux"
+import { useSelector } from 'react-redux'
 
 import "./navbar.css"
 
 
 export default function Navbar() {
+          const name = useSelector(state => state.user.userInfo.name)
 
           
           return (
@@ -36,7 +37,7 @@ export default function Navbar() {
                                                             className="avatar" 
                                                   />
 
-                                                  <span className="navbarName"> Solomon </span>
+                                                  <span className="navbarName"> {name} </span>
 
                                                   <ArrowDropDown />
                                         </div>
