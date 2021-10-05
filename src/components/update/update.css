@@ -1,0 +1,83 @@
+.update {
+          flex: 6;
+          /* width: 100%; */
+}
+
+.updateWrapper {
+          padding: 20px;
+}
+
+.updateTitle {
+          margin-bottom: 20px;
+          font-weight: 400;
+          font-size: 24px;
+}
+
+.deleteBtn {
+          border: none;
+          outline: none;
+          font-size: 12px;
+          background: lightpink;
+          color: #fff;
+          font-weight: 500;
+          padding: 5px;
+          margin-top: 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          /* margin-bottom: 20px; */
+}
+
+.updateContainer {
+          border-top: 1px solid lightgray;
+          display: flex;
+          margin-top: 20px;
+          padding-top: 10px;
+}
+
+form {
+          flex: 1;
+}
+
+.formItem {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px;
+
+}
+
+.profilePic {
+          display: flex;
+          align-items: center;
+          /* margin: 5px 0; */
+          margin-top: 10px;
+}
+
+.change {
+          /* margin: 0 10px; */
+          margin-left: 10px;
+          color: lightseagreen;
+          font-size: 13px;
+          cursor: pointer;
+          font-weight: 500;
+}
+
+/* .formItem > input{ */
+.formInput {
+          /* margin-bottom: 10px; */
+          margin-top: 5px;
+          width: 40%;
+          padding: 5px;
+          outline: none;
+}
+
+.updateBtn {
+          margin-top: 10px;
+          border: none;
+          padding: 5px 10px;
+          background: lightseagreen;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+}
